@@ -28,8 +28,11 @@ with open(userFilename, 'w') as f:
 	json.dump(fileLine, f)
 print("We've written your data to a file. Let's load it back and print it out: ")
 print("")
+#read from file
 with open(userFilename) as f:
 	fileRead = json.load(f)
 print(f"Here's the data we have: {fileRead}")	
 print()
 print("Thank you for using the File Processing Program.")
+print()
+input("Press ENTER to exit")
