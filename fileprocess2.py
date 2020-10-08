@@ -1,0 +1,39 @@
+import json, os
+
+print("Welcome to the File Processing Program.")
+print()
+#prompt user for directory and name of file
+#code from https://www.tutorialsteacher.com/python/os-module
+userDir = input("Please specify the directory of the file: ")
+print()
+CHECK_FOLDER = os.path.isdir(userDir)
+if not CHECK_FOLDER:
+	#code supplied by professor
+	os.mkdir(userDir)
+	print()
+userFilename = input("Please specify the name of the file to create: ")
+print()
+#prompt for name/addr/phone
+userName = input("May I have your name, please? ")
+print()
+userAddr = input("May I have your address, please? ")
+print()
+userPhone = input("May I have your phone number please? ")
+print()
+fileLine = str(userName) + ", " + str(userAddr) + ", " + str(userPhone)
+#write to file
+#code from textbook p 203
+dirFile = str(userDir) + "/" + str(userFilename)
+with open(dirFile, 'w') as f:
+	json.dump(fileLine, f)
+print("We've written your data to a file. Let's load it back and print it out: ")
+print("")
+#read from file
+#code from textbook p 203
+with open(dirFile) as f:
+	fileRead = json.load(f)
+print(f"Here's the data we have: {fileRead}")	
+print()
+print("Thank you for using the File Processing Program.")
+print()
+input("Press ENTER to exit")
